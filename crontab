@@ -2,7 +2,7 @@
 # To edit a Crontab, run "crontab -e" as the user you want to run jobs as.
 # To run as root you can run "sudo crontab -e",
 
-# Run the analytics script to pull Icecast listeners into Matomo, and log the output.
+# Run the analytics script every minute to pull Icecast listeners into Matomo, and log the output.
 */1 * * * * /usr/bin/php /path/to/analytics.php >> /var/log/matomo-archive.log
 
 # Run Matomo's archival script every 10 minutes, and log the output.

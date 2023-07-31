@@ -16,7 +16,8 @@ if (isset($xml->source->Listeners)) {
 			$ua = $listener->UserAgent;
 			// Build the Matomo URL and send
 			$maturl = 'https://my.matomo.server:port/matomo.php?'
-			. 'idsite=7&'
+			// Update with your own site ID
+			. 'idsite=1&'
 			. 'rec=1&'
 			. 'action_name=Stream%20Listener&'
 			. 'url=' . urlencode('http://icecast.server:port/mount') . '&'
@@ -26,10 +27,7 @@ if (isset($xml->source->Listeners)) {
 			// Get your Matomo auth token from Personal > Security > Auth tokens
 			. 'token_auth=yourmatomoauthtoken&'
 			. 'ua=' . urlencode($ua) . '&'
-//			. 'cip=' . $ip . '&'
 			. 'cip=' . $ip;
-//			. 'ping=1';
-//			echo $maturl . "\r\n";
 			$curl = curl_init($maturl);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			$matresponse = curl_exec($curl);
